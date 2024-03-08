@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            margin: 0px;
+        }
+        #container{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows:  3fr 5fr 1fr;
+            width: 100vw;
+            height: 100vh;
+            background-color: sandybrown;
+        }
+        #header{
+            grid-column: 1 /span 4;
+            grid-row: 1;
+            background-color: slateblue;
+        }
+        #navi{
+            grid-column: 1 /span 1;
+            grid-row:2 ;
+            background-color: brown;}
+        #content{
+            grid-column: 2 /span 3;
+            grid-row: 2;
+            background-color: greenyellow;
+        }
+        #footer{
+        
+            grid-column: 1 /span 4;
+            grid-row: 3;
+            background-color:burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">ich bin header</div>
+        <div id="navi">ich bin navi</div>
+        <div id="content">ich bin content</div>
+        <div id="footer">ich bin ganz unten</div>
+    </div>
+    
+</body>
+</html>

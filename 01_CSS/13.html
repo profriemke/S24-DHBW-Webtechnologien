@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #hinweis {
+            width: 200px;
+            height: 20px;
+            background-color: red;
+            color: white;
+
+        }
+
+        #text {
+            opacity: 0;
+            width: 200px;
+            height: 100px;
+            background-color: rgb(247, 96, 96);
+            color: white;
+            transition: opacity 2s;
+
+        }
+
+        #hinweis:hover+#text {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hinweis">Warnung</div>
+    <div id="text">vor dem Schund</div>
+</body>
+
+</html>

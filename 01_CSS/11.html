@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes intro {
+            from {
+                transform: rotate(0);
+                background-color: red;
+            }
+
+            to {
+                transform: rotate(560deg);
+                background-color: blue;
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation: intro 1s  infinite alternate;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Tach</div>
+
+</body>
+
+</html>
