@@ -1,0 +1,43 @@
+$color: blue;
+$size: 100;
+$sizes: 10, 20, 50, 100;
+
+@mixin border{
+    border: 1px solid black;
+}
+
+body {
+    background-color: $color;
+}
+
+h1{
+    color: $color;
+    margin: #{$size/2}em;
+
+}
+
+.unterbox {
+    @include border;
+    background-color: $color;
+    .box {
+        @include border;
+        background-color: green;
+        h1 {
+            color: red;
+        }
+    }
+}
+
+@each $size in $sizes {
+  .div-#{$size} {
+    height: #{$size}px;
+    width: #{$size}px;
+  }
+}
+
+@for $i from 1 through 10 {
+  .m-#{$i} {
+    margin: $i px;
+
+  }
+}
