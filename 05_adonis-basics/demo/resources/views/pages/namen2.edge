@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Unsere allerbesten</h1>
+    @if(isLoggedIn)
+    <ul>
+        @each(( person, index) in personen )
+        <li>{{ index+1 }}.  {{ person.vorname }} {{ person.nachname }}</li>
+        @end
+    </ul>
+    @else
+    <p>Du bist nicht angemeldet</p>
+    @end
+</body>
+</html>
