@@ -8,17 +8,14 @@
 */
 
 import router from '@adonisjs/core/services/router'
-
-
+import NamesController from '#controllers/names_controller'
+let count = 0
 
 router.get('/', async ( { view })=>{
     console.log(await view.render('pages/start'))
     return  view.render('pages/start', { gruss: 'Hallo', name: 'Riemke'})
 })
-router.get('/namen', async ( { view })=>{
-
-    return  view.render('pages/namen', { namen: ['Malte', 'Susi','Friedbert']})
-})
+router.get('/namen', [NamesController, 'index'])
 
 router.get('/namen2', async ( { view })=>{
 
@@ -52,7 +49,7 @@ router.get('/nutzer', async({ view })=>{
     return view.render('pages/nutzer')
 })
 
-router.post('/nutzer/anzeigen', async({ request, view })=>{
+router.post('/nutzer', async({ request, view })=>{
     const vorname = request.input('vorname')
     const nachname = request.input('nachname')
     if(nachname===null || vorname === null){
@@ -60,4 +57,9 @@ router.post('/nutzer/anzeigen', async({ request, view })=>{
     }
 
     return view.render('pages/nutzer_anzeigen', { vorname, nachname})
+})
+
+router.get('/count', async ({ view })=>{
+    count++
+    return view.render('pages/count', { count })
 })

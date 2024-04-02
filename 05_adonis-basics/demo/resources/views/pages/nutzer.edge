@@ -10,7 +10,7 @@
     @if( error != undefined)
         {{ error }} 
     @end
-    <form action="/nutzer/anzeigen" method="post">
+    <form action="/nutzer" method="post">
         {{ csrfField()}}
         <input type="text" name="vorname" placeholder="Dein Vorname" >
         <input type="text" name="nachname" placeholder="Dein Nachname" >
