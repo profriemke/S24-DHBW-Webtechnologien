@@ -17,9 +17,8 @@ router.get('/', async ( { view })=>{
 })
 router.get('/namen', [NamesController, 'index'])
 
-router.get('/namen2', async ( { view })=>{
-
-    return  view.render('pages/namen2', 
+router.get('/namen2', async ( { view,  })=>{
+        return  view.render('pages/namen2', 
         { isLoggedIn: false, 
             personen: [
               {vorname:'Malte', nachname: 'Müller'},
