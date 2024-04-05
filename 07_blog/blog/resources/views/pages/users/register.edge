@@ -1,0 +1,12 @@
+@include('partials/htmlhead')
+<body>
+    <form action="/register" method="POST">
+        {{ csrfField() }}
+        <input type="text" name="login" placeholder="login"><br>
+        <input type="password" name="password" placeholder="password"><br>
+        <input type="text" name="firstname" placeholder="Vorname"><br>
+        <input type="text" name="lastname" placeholder="Nachname"><br>
+        <input type="submit" value="Registrieren für unseren tollen Blog!"><br>
+    </form>    
+</body>
+</html>

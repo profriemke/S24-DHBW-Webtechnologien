@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> AdonisJS - A fully featured web framework for Node.js </title>
-
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
+@include('partials/htmlhead')
 <body>
   <h1>Mein toller Blog!</h1>
+  @if(user)
+    Hallo {{ user.firstname }}!!
+    <a href="/posts">Neuer Post</a>
+    <a href="/logout">Logout</a>
+  @else
+    <a href="/login">Login</a>
+  @end
   @each(post in posts)
     <h2>{{ post.title }}</h2>
-    <p>{{ post.text }}</p>
+    <p><a href="/post/{{ post.id }}">mehr...</a></p>
   @end
-
+  
 </body>
 </html>
