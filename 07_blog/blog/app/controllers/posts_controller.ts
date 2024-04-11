@@ -1,5 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import db from '@adonisjs/lucid/services/db'
+import app from '@adonisjs/core/services/app'
 
 export default class PostsController {
     public async index({ view, session }: HttpContext) {
@@ -9,18 +10,33 @@ export default class PostsController {
 
     public async createForm({ view, response, session }: HttpContext) {
         if(session.get('user') === undefined){
-            return response.redirect('/login')
+            return view.render('pages/users/login', {error: 'Bitte einloggen'})
         }
         return view.render('pages/posts/create_form')
     }
 
-    public async createProcess({ request, response, session }: HttpContext) {
+    public async createProcess({ request, response, session, view }: HttpContext) {
         if(session.get('user') === undefined){
             return response.redirect('/login')
         }
+
+        const image = request.file('image',{ size: '5mb', extnames: ['jpg', 'png', 'jpeg']})
+        if(image === null){
+            return view.render('pages/posts/create_form', {error: 'Bitte Bild hochladen'})
+        }
+       
+        if(!image.isValid){
+            return view.render('pages/posts/create_form', {error: 'Bild fehern'})
+
+        }
+        console.log(image)
+        // für öffentlichen Ordner: await image.move(app.publicPath('uploads'))
+        await image.move(app.makePath('uploads'))
+        console.log(image.fileName)
+
         const title = request.input('title')
         const text = request.input('text')
-        const result = await db.table('posts').insert({ title, text, user_id: session.get('user').id })
+        const result = await db.table('posts').insert({ title, text, user_id: session.get('user').id, image: image.fileName})
         console.log(result)
         return response.redirect('/')
     }

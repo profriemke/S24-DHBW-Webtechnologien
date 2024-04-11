@@ -1,10 +1,14 @@
 @include('partials/htmlhead')
 <body>
     <h1>Neuer Blog Post</h1>
-    <form action="/posts" method="POST">
+    @if(error != undefined)
+    {{error}}
+    @end
+    <form action="/posts" method="POST" enctype="multipart/form-data">
         {{ csrfField() }}
         <input type="text" name="title"><br>
         <textarea name="text" cols="30" rows="10"></textarea><br>
+        <input type="file" name="image"><br>
         <input type="submit" value="Posten">
     </form>
 </body>

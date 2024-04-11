@@ -5,6 +5,11 @@
     @else
     <h1>{{ post.title }}</h1>
     <p>
+            @if(post.image != null)
+            <img src="/uploads/{{ post.image }}" alt="{{ post.title }}" height="200">
+            @end
+    </p>
+    <p>
         {{ post.text }}
     </p>  
     <small>{{ firstname }} {{ lastname }}</small><br>

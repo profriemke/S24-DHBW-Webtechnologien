@@ -13,7 +13,8 @@ export default class UsersController {
     }
 
     public async loginProcess({ view, response, request, session }: HttpContext) {
-        const result = await db.from('users').select('*').where('login', request.input('login')).first() 
+       
+         const result = await db.from('users').select('*').where('login', request.input('login')).first() 
         if(!result){
             // Fehler Nutzer existiert nicht
            return view.render('pages/users/login', {error: 'Irgendwas falsch gelaufen'})
