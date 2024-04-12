@@ -1,17 +1,22 @@
 @include('partials/htmlhead')
 <body>
+ @include('partials/header')
+<main class="p-3">
   <h1>Mein toller Blog!</h1>
   @if(user)
     Hallo {{ user.firstname }}!!
     <a href="/posts">Neuer Post</a>
     <a href="/logout">Logout</a>
   @else
-    <a href="/login">Login</a>
+    <a class="bg-blue-500 p-1 rounded-md" href="/login">Login</a>
   @end
   @each(post in posts)
-    <h2>{{ post.title }}</h2>
-    <p><a href="/post/{{ post.id }}">mehr...</a></p>
+    <h2 class="text-xl">{{ post.title }}</h2>
+    <p><a href="/post/{{ post.id }}" class="text-sm">mehr...</a></p>
+    @if(user)
+    <p><a href="/post/{{ post.id }}/edit">editieren...</a></p>
+    @end
   @end
-  
+</main>
 </body>
 </html>

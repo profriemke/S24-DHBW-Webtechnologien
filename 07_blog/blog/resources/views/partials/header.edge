@@ -1,0 +1,14 @@
+ <nav class="flex bg-sky-500">
+      
+    @if(page== 'home')
+        <ul class="bg-sky-400 flex-1 p-1 text-gray-50"><a href="/">Home</a></ul>
+    @else
+        <ul class="flex-1 p-1 text-gray-50"><a href="/">Home</a></ul>
+    @end  
+    @if(page== 'about')
+        <ul class="bg-sky-400  flex-1 p-1 text-gray-50"><a href="/about">About</a></ul>
+    @else
+         <ul class="flex-1 p-1 text-gray-50"><a href="/about">About</a></ul>
+    @end    
+     
+  </nav>

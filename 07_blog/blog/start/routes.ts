@@ -34,6 +34,8 @@ router.get('/posts', [PostsController, 'createForm'])
 router.post('/posts', [PostsController, 'createProcess'])
 
 router.get('/post/:id', [PostsController, 'show'])
+router.get('/post/:id/edit', [PostsController, 'editForm'])
+router.post('/post/:id/edit', [PostsController, 'editProcess'])
 
 router.get('/register', [UsersController, 'registerForm'])
 router.post('/register', [UsersController, 'registerProcess'])
@@ -41,6 +43,10 @@ router.post('/register', [UsersController, 'registerProcess'])
 router.get('/login', [UsersController, 'loginForm'])
 router.post('/login', [UsersController, 'loginProcess'])
 router.get('/logout', [UsersController, 'logout'])
+
+router.get('/about', async ({ view }) => {
+    return view.render('pages/about',{page:'about'})
+})
 
 // Demo-Zeugs
 

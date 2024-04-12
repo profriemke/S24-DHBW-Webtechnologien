@@ -1,10 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {
-  height: 100%;
-  width: 100%;
+
+}
+h1{
+  @apply text-4xl font-bold;
 }
