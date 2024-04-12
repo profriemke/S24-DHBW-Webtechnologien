@@ -1,6 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import db from '@adonisjs/lucid/services/db'
 import app from '@adonisjs/core/services/app'
+import { cuid } from '@adonisjs/core/helpers'
 
 export default class PostsController {
     public async index({ view, session }: HttpContext) {
@@ -26,13 +27,14 @@ export default class PostsController {
         }
        
         if(!image.isValid){
-            return view.render('pages/posts/create_form', {error: 'Bild fehern'})
-
+            console.log(image.errors)
+            return view.render('pages/posts/create_form', {error: 'Bild Fehler: ' + image.errors[0].message})
         }
         console.log(image)
         // für öffentlichen Ordner: await image.move(app.publicPath('uploads'))
-        await image.move(app.makePath('uploads'))
+        await image.move(app.makePath('uploads'),{ name: `${cuid()}.${image.extname}`})  
         console.log(image.fileName)
+
 
         const title = request.input('title')
         const text = request.input('text')
