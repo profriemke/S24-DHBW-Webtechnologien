@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <button onclick="document.querySelector('h1').remove()">weg</button>
+    <button onclick="document.querySelector('h1').style.backgroundColor='#FF0000'">ändern</button>
+    <script>
+        const box = document.getElementById('box')
+        const newElement = document.createElement('h1')
+        newElement.innerText = 'Hallo'
+        box.appendChild(newElement)
+    </script>
+</body>
+
+</html>

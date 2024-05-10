@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="boxen"></div>
+    <div class="boxen"></div>
+    <div class="boxen"></div>
+    <div class="boxen"></div>
+    <div class="boxen"></div>
+    <div class="boxen"></div>
+    <script>
+        const boxen = document.getElementsByClassName('boxen')
+
+        for (let i = 0; i < boxen.length; i++) {
+            boxen[i].style.width = "100px"
+            boxen[i].style.height = "100px"
+
+            if (i % 2 == 0) {
+                boxen[i].style.backgroundColor = "#00FF00"
+            } else {
+                boxen[i].style.backgroundColor = "#FF0000"
+            }
+        }
+
+    </script>
+</body>
+
+</html>
