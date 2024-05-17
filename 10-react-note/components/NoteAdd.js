@@ -16,15 +16,15 @@ const NoteAdd = (props) => {
 
     if (addState) {
         return (
-            <p>
-                <input onChange={handleNote} className="border-2 rounded-md" type="text" />
-                <button onClick={noteSubmit} className="rounded-md bg-sky-600 p-2">eintragen</button>
+            <p className="bg-slate-300 rounded-lg shadow-xl m-4">
+                <input onChange={handleNote} className="border-2 rounded-md m-4" type="text" />
+                <button onClick={noteSubmit} className="rounded-md bg-sky-600 p-1 text-white text-xs m-2">eintragen</button>
             </p>
         )
     } else {
         return (
 
-            <div onClick={() => { setAddState(true) }} className="cursor-pointer m-7 bg-sky-600 w-10 h-10 text-white font-extrabold text-center rounded-full shadow-lg">+</div>
+            <button onClick={() => { setAddState(true) }} className="cursor-pointer m-7 bg-sky-600 w-10 h-10 text-white font-extrabold text-center rounded-full shadow-xl">+</button>
         )
     }
 }
